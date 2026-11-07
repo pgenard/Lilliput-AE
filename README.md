@@ -1,4 +1,4 @@
-# 🔐 Lilliput-AE Basic Verilog Design ~1000 LoCs.
+# 🔐 Lilliput-AE Basic Verilog Design in ~1000 LoCs.
 
 ## About
 
