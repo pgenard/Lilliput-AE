@@ -4,7 +4,7 @@
 
 Exploring **Cryptography** and **Hardware Design**.
 
-This repository contains a Verilog RTL implementation of the **Lilliput-TBC-128** tweakable block cipher and the **SCT-2** mode authenticated encryption construction.
+This repository contains a Verilog RTL implementation of the **Lilliput-TBC-128** tweakable block cipher and the **SCT-2** mode for authenticated encryption.
 
 The current development and verification process is focused exclusively on RTL simulation.
 
@@ -14,7 +14,7 @@ The current development and verification process is focused exclusively on RTL s
 
 **Lilliput-TBC-128**: underlying 128-bit tweakable block cipher.
 
-**SCT-2**: authenticated encryption construction built around the tweakable block cipher.
+**SCT-2**: authenticated encryption mode built around the tweakable block cipher.
 
 ## Project Files
 
@@ -41,24 +41,13 @@ The verification strategy uses reference test vectors to compare the simulated c
 #### Lilliput-TBC-128
 
 ```bash
-iverilog -g2012 -Wall -o lilliput_tbc \
-                         lilliput_sbox.v \
-			 lilliput_tweakey.v \
-			 lilliput_round.v \
-			 lilliput_tbc_128.v \
-			 tb_lilliput_tbc_128.v
+iverilog -g2012 -o lilliput_tbc lilliput_sbox.v lilliput_tweakey.v lilliput_round.v lilliput_tbc_128.v tb_lilliput_tbc_128.v
 ```
 
 #### Lilliput-SCT-2
 
 ```bash
-iverilog -g2012 -o lilliput_sct2 \
-                   lilliput_sbox.v \
-		   lilliput_round.v \
-		   lilliput_tweakey.v \
-		   lilliput_tbc_128.v \
-		   lilliput_sct2.v \
-		   tb_lilliput_sct2.v
+iverilog -g2012 -o lilliput_sct2 lilliput_sbox.v lilliput_round.v lilliput_tweakey.v lilliput_tbc_128.v lilliput_sct2.v tb_lilliput_sct2.v
 ```
 
 ### Simulation
@@ -102,12 +91,13 @@ RESULT: ALL TESTS PASSED
 
 - **Verilog** HDL.
 - **Icarus Verilog**.
-- **GTKWave** (optional waveform inspection).
-- Linux command line.
+- **GTKWave** (Optional Waveform Inspection).
+- **Linux** Command Line.
 
 No FPGA board is required to run the simulation.
 
 ## Author
+
 **Pierre GENARD**
 
 ### Happy Hacking! 🔐
